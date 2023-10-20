@@ -32,7 +32,9 @@ export default {
     const refreshKey = ref(0);
 
     onMounted(() => {
-      characters.value = charactersData.map((char) => {
+      characters.value = charactersData
+      .filter(char => char.serial.includes('A'))
+      .map((char) => {
         return {
           id: char.serial,  
           char: char.word,
@@ -43,7 +45,7 @@ export default {
       learnedCount.value = characters.value.filter(c => c.learned).length;
     });
 
-    const totalCharacters = charactersData.length;
+    const totalCharacters = charactersData.filter(c => c.serial.includes('A')).length;
 
     function forceRefresh() {
       refreshKey.value++;
