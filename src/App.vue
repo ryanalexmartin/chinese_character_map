@@ -5,6 +5,7 @@
       class="scroller"
       :items="characters"
       :item-size="50"
+      :gridItems="20"
       key-field="id"
       v-slot="{ item }"
     >
@@ -75,5 +76,11 @@ export default {
 .vue-recycle-scroller.direction-vertical.scroller {
   height: 500px;  /* adjust this value based on your design */
   overflow-y: auto;
+}
+.character-card{
+  height: 32%;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
 }
 </style>
